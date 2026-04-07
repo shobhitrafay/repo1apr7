@@ -33,7 +33,6 @@ spec:
       - CADVISOR
       - KUBELET
       - DCGM
-      disableHorizontalPodAutoscaling: true
       disableHttpLoadBalancing: true
       enableApplicationManagerBeta: true
       enableBackupForGke: true
