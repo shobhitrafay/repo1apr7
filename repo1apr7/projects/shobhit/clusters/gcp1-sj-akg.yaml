@@ -1,0 +1,74 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Cluster
+metadata:
+  name: gcp1-sj-akg
+  project: shobhit
+spec:
+  blueprint:
+    name: default-gke
+    version: latest
+  cloudCredentials: -dev-
+  config:
+    controlPlaneVersion: "1.32"
+    features:
+      cloudLoggingComponents:
+      - SYSTEM_COMPONENTS
+      - WORKLOADS
+      - CONTROLLER_MANAGER
+      - APISERVER
+      - SCHEDULER
+      - KCP_HPA
+      cloudMonitoringComponents:
+      - SYSTEM_COMPONENTS
+      - APISERVER
+      - SCHEDULER
+      - CONTROLLER_MANAGER
+      - STORAGE
+      - POD
+      - DEPLOYMENT
+      - STATEFULSET
+      - DAEMONSET
+      - HPA
+      - JOBSET
+      - CADVISOR
+      - KUBELET
+      - DCGM
+      enableApplicationManagerBeta: true
+      enableBackupForGke: true
+      enableCloudLogging: true
+      enableCloudMonitoring: true
+      enableComputeEnginePersistentDiskCSIDriver: true
+      enableFilestoreCSIDriver: true
+      enableManagedServicePrometheus: true
+    gcpProject: dev-382813
+    location:
+      config:
+        zone: us-central1-a
+      type: zonal
+    network:
+      access:
+        config: null
+        type: public
+      dataPlaneV2: ADVANCED_DATAPATH
+      enableDataPlaneV2Metrics: true
+      enableVPCNativetraffic: true
+      maxPodsPerNode: 110
+      name: default
+      subnetName: default
+    nodePools:
+    - machineConfig:
+        bootDiskSize: 100
+        bootDiskType: pd-standard
+        imageType: COS_CONTAINERD
+        machineType: e2-standard-4
+      name: default-nodepool
+      nodeVersion: "1.32"
+      size: 4
+      upgradeSettings:
+        config:
+          maxSurge: 1
+        strategy: SURGE
+    security:
+      enableLegacyAuthorization: true
+      enableWorkloadIdentity: true
+  type: gke
