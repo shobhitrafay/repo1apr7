@@ -39,6 +39,7 @@ spec:
       enableCloudMonitoring: true
       enableComputeEnginePersistentDiskCSIDriver: true
       enableFilestoreCSIDriver: true
+      enableGcsFuseCsiDriver: true
       enableManagedServicePrometheus: true
     gcpProject: dev-382813
     location:
