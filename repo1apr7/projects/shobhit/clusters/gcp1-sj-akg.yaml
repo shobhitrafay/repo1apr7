@@ -66,6 +66,14 @@ spec:
       resourceLabels:
         ddd: fff
       size: 4
+    - machineConfig:
+        bootDiskSize: 100
+        bootDiskType: pd-standard
+        imageType: COS_CONTAINERD
+        machineType: e2-standard-4
+      name: sec
+      nodeVersion: "1.32"
+      size: 3
     security:
       enableLegacyAuthorization: true
       enableWorkloadIdentity: true
