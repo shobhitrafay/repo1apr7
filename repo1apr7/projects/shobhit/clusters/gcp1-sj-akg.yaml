@@ -76,4 +76,8 @@ spec:
     security:
       enableLegacyAuthorization: true
       enableWorkloadIdentity: true
+  sharing:
+    enabled: true
+    projects:
+    - name: defaultproject
   type: gke
