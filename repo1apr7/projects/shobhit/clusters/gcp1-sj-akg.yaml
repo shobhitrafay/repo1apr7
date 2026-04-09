@@ -9,7 +9,7 @@ spec:
     version: latest
   cloudCredentials: -dev-
   config:
-    controlPlaneVersion: "1.32"
+    controlPlaneVersion: "1.33"
     features:
       cloudLoggingComponents:
       - SYSTEM_COMPONENTS
