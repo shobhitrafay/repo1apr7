@@ -33,15 +33,12 @@ spec:
       - CADVISOR
       - KUBELET
       - DCGM
-      disableHorizontalPodAutoscaling: true
-      disableHttpLoadBalancing: true
       enableApplicationManagerBeta: true
       enableBackupForGke: true
       enableCloudLogging: true
       enableCloudMonitoring: true
       enableComputeEnginePersistentDiskCSIDriver: true
       enableFilestoreCSIDriver: true
-      enableGcsFuseCsiDriver: true
       enableManagedServicePrometheus: true
     gcpProject: dev-382813
     location:
