@@ -16,7 +16,6 @@ spec:
       - WORKLOADS
       - CONTROLLER_MANAGER
       - APISERVER
-      - SCHEDULER
       - KCP_HPA
       cloudMonitoringComponents:
       - SYSTEM_COMPONENTS
