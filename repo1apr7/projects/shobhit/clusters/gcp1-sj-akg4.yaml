@@ -1,0 +1,81 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Cluster
+metadata:
+  name: gcp1-sj-akg4
+  project: shobhit
+  modifiedAt: '2026-04-09T06:29:02.744561Z'
+spec:
+  cloudCredentials: '-dev-'
+  type: gke
+  config:
+    gcpProject: dev-382813
+    location:
+      type: zonal
+      config:
+        zone: us-central1-a
+    controlPlaneVersion: '1.33'
+    network:
+      name: default
+      subnetName: default
+      access:
+        type: public
+        config: null
+      enableVPCNativetraffic: true
+      maxPodsPerNode: 110
+      dataPlaneV2: ADVANCED_DATAPATH
+      enableDataPlaneV2Metrics: true
+    security:
+      enableWorkloadIdentity: true
+      enableLegacyAuthorization: true
+    features:
+      enableCloudLogging: true
+      cloudLoggingComponents:
+        - SYSTEM_COMPONENTS
+        - WORKLOADS
+        - CONTROLLER_MANAGER
+        - APISERVER
+        - SCHEDULER
+        - KCP_HPA
+      enableCloudMonitoring: true
+      cloudMonitoringComponents:
+        - SYSTEM_COMPONENTS
+        - APISERVER
+        - SCHEDULER
+        - CONTROLLER_MANAGER
+        - STORAGE
+        - POD
+        - DEPLOYMENT
+        - STATEFULSET
+        - DAEMONSET
+        - HPA
+        - JOBSET
+        - CADVISOR
+        - KUBELET
+        #- DCGM
+      enableManagedServicePrometheus: true
+      enableApplicationManagerBeta: true
+      enableBackupForGke: true
+      enableComputeEnginePersistentDiskCSIDriver: true
+      enableFilestoreCSIDriver: true
+    nodePools:
+      - name: default-nodepool
+        nodeVersion: '1.32'
+        size: 4
+        machineConfig:
+          imageType: COS_CONTAINERD
+          machineType: e2-standard-4
+          bootDiskType: pd-standard
+          bootDiskSize: 100
+        resourceLabels:
+          ddd: fff
+      - name: sec
+        nodeVersion: '1.32'
+        size: 3
+        machineConfig:
+          imageType: COS_CONTAINERD
+          machineType: e2-standard-4
+          bootDiskType: pd-standard
+          bootDiskSize: 100
+  blueprint:
+    name: default-gke
+    version: latest
